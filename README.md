@@ -1,67 +1,12 @@
+# VietNameese Speech Recognition
+Sử dụng kiến trúc mô hình nhận dạng đầu cuối dựa trên kỹ thuật phân loại thời gian kết nối được xây dựng kết hợp cùng ý tưởng của bài báo [DeepSpeech2](http://arxiv.org/pdf/1512.02595v1.pdf), một nghiên cứu của Baidu được công bố vào ngày 08/12/2015. Nội dung của bài báo trình bày về nhận dạng giọng nói được thực hiện trên ngôn ngữ Tiếng Anh (English) và tiếng Quan Thoại (Mandarin). Nhóm sinh viên sẽ dựa trên bài báo này, áp dụng mô hình nhận dạng giọng nói với ngôn ngữ Tiếng Việt, đồng thời sẽ cải tiến để phù hợp hơn về âm điệu và phương ngữ của Tiếng Việt.
 # deepspeech.pytorch
-[![Build Status](https://travis-ci.org/SeanNaren/deepspeech.pytorch.svg?branch=master)](https://travis-ci.org/SeanNaren/deepspeech.pytorch)
-
-Implementation of DeepSpeech2 for PyTorch. The repo supports training/testing and inference using the [DeepSpeech2](http://arxiv.org/pdf/1512.02595v1.pdf) model. Optionally a [kenlm](https://github.com/kpu/kenlm) language model can be used at inference time.
-
-## Installation
-
-### Docker
-
-To use the image with a GPU you'll need to have [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) installed.
-
-```bash
-sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data -p 8888:8888 --net=host --ipc=host seannaren/deepspeech.pytorch:latest # Opens a Jupyter notebook, mounting the /data drive in the container
-```
-
-Optionally you can use the command line by changing the entrypoint:
-
-```bash
-sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host seannaren/deepspeech.pytorch:latest
-```
-
-### From Source
-
-Several libraries are needed to be installed for training to work. I will assume that everything is being installed in
-an Anaconda installation on Ubuntu, with PyTorch installed.
-
-Install [PyTorch](https://github.com/pytorch/pytorch#installation) if you haven't already.
-
-Install this fork for Warp-CTC bindings:
-```
-git clone https://github.com/SeanNaren/warp-ctc.git
-cd warp-ctc; mkdir build; cd build; cmake ..; make
-export CUDA_HOME="/usr/local/cuda"
-cd ../pytorch_binding && python setup.py install
-```
-
-Install NVIDIA apex:
-```
-git clone --recursive https://github.com/NVIDIA/apex.git
-cd apex && pip install .
-```
-
-If you want decoding to support beam search with an optional language model, install ctcdecode:
-```
-git clone --recursive https://github.com/parlance/ctcdecode.git
-cd ctcdecode && pip install .
-```
-
-Finally clone this repo and run this within the repo:
-```
-pip install -r requirements.txt
-pip install -e . # Dev install
-```
-
-If you plan to use Multi-GPU/Multi-node training, you'll need etcd. Below is the command to install on Ubuntu.
-```
-sudo apt-get install etcd
-```
 
 ## Training
 
-### Datasets
+### VietNamese Datasets
 
-Currently supports AN4, TEDLIUM, Voxforge, Common Voice and LibriSpeech. Scripts will setup the dataset and create manifest files used in data-loading. The scripts can be found in the data/ folder. Many of the scripts allow you to download the raw datasets separately if you choose so.
+FPT, [VIVOS](https://ailab.hcmus.edu.vn/vivos), VinBigData
 
 #### Custom Dataset
 
