@@ -1,4 +1,7 @@
 # VietNameese Speech Recognition
+Luận văn 2020 - Xây dựng mô hình nhận dạng giọng nói
+
+## Nội dung
 Sử dụng kiến trúc mô hình nhận dạng đầu cuối dựa trên kỹ thuật phân loại thời gian kết nối được xây dựng kết hợp cùng ý tưởng của bài báo [DeepSpeech2](http://arxiv.org/pdf/1512.02595v1.pdf), một nghiên cứu của Baidu được công bố vào ngày 08/12/2015. Nội dung của bài báo trình bày về nhận dạng giọng nói được thực hiện trên ngôn ngữ Tiếng Anh (English) và tiếng Quan Thoại (Mandarin). Nhóm sinh viên sẽ dựa trên bài báo này, áp dụng mô hình nhận dạng giọng nói với ngôn ngữ Tiếng Việt, đồng thời sẽ cải tiến để phù hợp hơn về âm điệu và phương ngữ của Tiếng Việt.
 # deepspeech.pytorch
 
